@@ -1,6 +1,6 @@
 # Learning Java with The Java Turotials
 
-I'm using [The Java Tutorials](https://docs.oracle.com/javase/tutorial/java/TOC.html) to learn Java, and recording my progress here.
+I'm using [The Java Tutorials](https://docs.oracle.com/javase/tutorial/java/TOC.html) and [Codecademy](https://www.codecademy.com/) to learn Java, and recording my progress here.
 
 ## Done
 
