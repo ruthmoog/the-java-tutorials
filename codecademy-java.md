@@ -192,3 +192,256 @@ public class Review {
 > My first Java program from scratch!
 ```
 
+### Java Program Structure
+
+- java is case-sensitive
+- classes are pascal case, methods and variables are camel case
+- curly braces mark the scope of a class `{}`
+- every program has a `main()` method which holds all of the program instructions
+- objects are packages of state and behavior
+- `System` is an object responsible for representing our computer within the program
+
+[Twitter Java style guide](https://github.com/twitter/commons/blob/master/src/java/com/twitter/common/styleguide.md)
+
+## Variables
+
+### Introduction
+
+- Declaring a variable requires that we specify the type and name
+- Types include `int`, `double`, `char` and, `boolean` - all primitives
+- To assign a value to a variable, use the assignment operator `=`
+
+> :pencil: Print out the `name` and the `yearCreated` variables:
+
+```java
+public class Creator {
+	public static void main(String[] args) {
+    String name = "James Gosling";
+    int yearCreated = 1995;
+    
+    System.out.println(name);
+    System.out.println(yearCreated);
+	}
+}
+```
+
+```shell
+> James Gosling
+> yearCreated
+```
+
+### ints
+
+- In Java, whole numbers are stored in the int primitive data type
+- `ints` hold positive numbers, negative numbers, and zero: between -2,147,483,648 and 2,147,483,647, inclusive
+- They do not store _fractions_ or numbers with _decimals_ in them
+
+> :pencil: Declare a variable that stores the number of comments in the program, then print it to console:
+
+```java
+//This is the class declaration
+public class CountComment {
+  //This is the main method that runs when you compile
+	public static void main(String[] args) {
+    //This is where you will define your variable
+    int numComments = 6;
+    //This is where you will print your variable
+    System.out.println(numComments);
+	}
+  
+  //This is the end of the class
+}
+
+//This is outside the class
+```
+
+```shell
+> 6
+```
+
+### doubles
+
+- `double` can hold decimals and, very large and very small numbers
+- The maximum value is 1.797,693,134,862,315,7 E+308, which is approximately 17 followed by 307 zeros
+- The minimum value is 4.9 E-324, which is 324 decimal places
+
+> :pencil: Create a variable to hold the % market share of Android phones, then print it:
+
+```java
+public class MarketShare {
+	public static void main(String[] args) {
+    double androidShare = 81.7;
+    System.out.println(androidShare);
+	}
+}
+```
+
+```shell
+> 81.7
+```
+
+### booleans
+
+- it's for booleans!
+
+### char
+
+- The char data type can hold any character, like a letter, space, or punctuation mark
+- Use single quotes `'`
+
+> :pencil: Create a variable `expectedGrade` fill it with your grade on this java course:
+
+```java
+public class Char {
+	public static void main(String[] args) {   
+		char expectedGrade = 'A';
+    System.out.println(expectedGrade);
+	}
+}
+```
+
+```shell
+> A
+```
+
+### Strings
+
+- `String`s are objects with built-in behavior
+
+### Static Checking
+
+- Java is _statically typed_
+- The program will not compile if the declared type of the variable does not match the type of the assigned value
+- This is a type declaration bug
+- If bugs are not caught they'll cause runtime errors & crash the program
+
+```shell
+> error: incompatible types: String cannot be converted to int
+>     int greeting = "Hello World";
+```
+
+> `Mess.java` will crash:
+
+```java
+public class Mess {
+	public static void main(String[] args) {   
+		String year = 2001;
+    double title = "Shrek";
+    int genre = 'C';
+    boolean runtime = 1.58;
+    char isPG = true;
+	}
+}
+```
+
+```shell
+$ javac Mess.java
+> Mess.java:3: error: incompatible types: int cannot be converted to String
+>                 String year = 2001;
+>                               ^
+> Mess.java:4: error: incompatible types: String cannot be converted to double
+>     double title = "Shrek";
+>                    ^
+> Mess.java:6: error: incompatible types: double cannot be converted to boolean
+>     boolean runtime = 1.58;
+>                       ^
+> Mess.java:7: error: incompatible types: boolean cannot be converted to char
+>     char isPG = true;
+>                 ^
+> 4 errors
+$ 
+```
+
+> :pencil: Correct the variable types & recompile:
+
+```java
+public class Mess {
+	public static void main(String[] args) {   
+		int year = 2001;
+    String title = "Shrek";
+    char genre = 'C';
+    double runtime = 1.58;
+    boolean isPG = true;
+	}
+}
+```
+
+```shell
+$ javac Mess.java
+$
+```
+
+### Naming
+
+- Valid variable names start with a _letter_, `$`, or `_`
+
+> `BadNames.java` will error:
+
+```java
+public class BadNames {
+	public static void main(String[] args) {   
+		String 1stName = "Samira";
+    String blah = "Smith";
+    String .com = "samira@google.com";
+    int salaryexpectation = 100000;
+    int year_of_birth = 1955;
+    
+    System.out.println("The program runs!");
+	}
+}
+```
+
+```shell
+> BadNames.java:3: error: not a statement
+> 		String 1stName = "Samira";
+> 		^
+> BadNames.java:3: error: ';' expected
+> 		String 1stName = "Samira";
+> 		      ^
+> 2 errors
+```
+
+> :pencil: Correct the bad names:
+
+```java
+public class BadNames {
+	public static void main(String[] args) {   
+		String firstName = "Samira";
+    String lastName = "Smith";
+    String emailAddress = "samira@google.com";
+    int salaryExpectation = 100000;
+    int birthYear = 1955;
+    
+    System.out.println("The program runs!");
+	}
+}
+```
+
+```shell
+> The program runs!
+```
+
+### Variables Review
+
+- `ints` store whole numbers
+- `doubles` store bigger whole numbers and decimal numbers
+- `booleans` store true and false
+- `chars` store single characters using single quotes
+- `Strings` store multiple characters using double quotes
+
+- Static typing is one of the safety features of Java
+- Java has naming conventions for variables
+
+> :pencil: Create a very accurate job profile using different variable types:
+
+```java
+public class MyProfile {
+	public static void main(String[] args) {   
+		String name = "Ruth";
+    int age = 99;
+    double desiredSalary = 900000584008372.65;
+    char gender = 'f';
+    boolean lookingForJob = false;
+	}
+}
+```
