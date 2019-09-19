@@ -445,3 +445,10 @@ public class MyProfile {
 	}
 }
 ```
+
+## Manipulating Variables
+
+- `+`, `-`, `*`, `%`, `>`, `<`, `==`, `<==`, `>==`, `!=` all work as expected
+- `/` divides to an `int` so doesn't handle floating points well
+- `equals()` is used to compare Strings
+- concatinate Strings with `+`, there's no interpolation
