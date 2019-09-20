@@ -452,3 +452,55 @@ public class MyProfile {
 - `/` divides to an `int` so doesn't handle floating points well
 - `equals()` is used to compare Strings
 - concatinate Strings with `+`, there's no interpolation
+
+## Introduction to Classes
+
+- `System` is a predefined Java class
+- `public` is an _access level modifier_ that allows other classes to interact with that class
+- The `main()` runs when the compiled class files is executed
+- Constructors share the name of the class
+- Create class _instances_ by calling the constructor within `main()`
+- use the keyword `new` to indicate creating an instance; omitting `new` causes an error
+- Instance fields allow for state
+- Access the value of the instance field with the dot operator
+- Order matters for multiple instance fields/parameters
+
+> :pencil: Create a `Store` class with an instance of store:
+
+```java
+public class Store {
+    String stock;
+    int units;
+  
+  // new method: constructor!
+  public Store(String whatsForSale, int howMany) {
+		System.out.println("I am inside the constructor method.");
+    stock = whatsForSale;
+    units = howMany;
+  }
+  
+  // main method is where we create instances!
+  public static void main(String[] args) {
+    System.out.println("Start of the main method.");
+
+    
+    // create the instance below
+    Store lemonadeStand = new Store("lemonade", 25);
+    // print the instance below
+    System.out.println(lemonadeStand);
+    System.out.println("There are " + lemonadeStand.units + " " + lemonadeStand.stock + "'s for sale.");
+  }
+}
+```
+
+```shell
+> Start of the main method.
+> I am inside the constructor method.
+> Store@2aae9190
+> There are 25 lemonade's for sale.
+```
+
+0. Running the program invokes main()
+0. We create an instance so we move from main() to Store()
+0. The code inside Store() runs
+0. When Store() finishes execution, we return to main()
