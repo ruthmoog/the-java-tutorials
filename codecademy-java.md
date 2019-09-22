@@ -504,3 +504,74 @@ public class Store {
 0. We create an instance so we move from main() to Store()
 0. The code inside Store() runs
 0. When Store() finishes execution, we return to main()
+
+## Methods
+
+- `public` means that other classes can access this method
+- A method is a task that an object of a class performs
+
+> Call a variable from outside the method scope:
+
+```shell
+> Store.java:12: error: cannot find symbol
+>     String message = "Selling " + cookie + "!";
+>                                   ^
+>   symbol:   variable cookie
+>   location: class Store
+> 1 error
+```
+
+> Use a method with params:
+
+```java
+// method requires String param
+public void greetCustomer(String customer) {}
+
+// ...
+
+// call the method with a string argument
+// inside main()
+lemonadeStand.greetCustomer("Pepper");
+```
+
+### Returns
+
+- `void` means that there is no specific output from the method
+- use datatype keywords (`int`, `char`, etc.) to specify that a method should return a value of that type
+
+> Create a method that returns a `double`:
+
+```java
+public double getPriceWithTax() {
+  //create the variable first
+  double totalPrice = price + (price * 0.08);
+  // after the variable is created it is explicitly returned
+  return totalPrice
+}
+```
+
+- Defining a `toString()` method for a class can return a `String` that will print object info
+
+```java
+  public String toString() {
+    return "This store sells " + productType + " at a price of $" + price + ".";
+  }
+
+  //then
+  System.out.println(lemonadeStand)
+```
+
+```java
+// without toString():
+> Store@2aae9190
+
+// with toString():
+> "This store sells Lemonade at a price of $3.75."
+```
+
+### Review...
+
+- Defining a method : Methods have a method signature that declares their return type, name, and parameters
+- Changing Instance Fields : Methods can be used to change the value of an instance field
+- Scope : Variables only exist within the domain that they are created in
+- Return : The type of the variables that are output are declared in the method signature
