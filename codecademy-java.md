@@ -575,3 +575,52 @@ public double getPriceWithTax() {
 - Changing Instance Fields : Methods can be used to change the value of an instance field
 - Scope : Variables only exist within the domain that they are created in
 - Return : The type of the variables that are output are declared in the method signature
+
+## Introduction to Control Flow
+
+- Multi-line conditional statements use curly braces after the boolean
+- Single-line conditional statements don't need curly braces
+- Conditional statements do not end in a semicolon
+- Switch blocks are not marked by curly braces and use the `break` keyword to exit the switch statement
+
+> :pencil: basic `if` statement:
+
+```java
+  if (itemCost > 24.00) {
+      System.out.println("High value item!");
+    }
+```
+
+> :pencil: and an `else if` statement:
+
+```java
+if (shipping == "Regular") {
+      return 0;
+    } else if (shipping == "Express") {
+      return 1.75;
+    } else {
+      return .50;
+    }
+```
+
+> :pencil: use a switch instead:
+
+```java
+public double calculateShipping() {
+    double shippingCost;
+	 	// declare switch statement here
+    switch (shipping) {
+      case "Regular":
+        shippingCost = 0;
+        break;
+      case "Express":
+        shippingCost = 1.75;
+        break;
+      default:
+        shippingCost = .50;
+    }
+    
+    return shippingCost;
+ 	}
+```
+
