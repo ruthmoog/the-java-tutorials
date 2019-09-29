@@ -624,3 +624,7 @@ public double calculateShipping() {
  	}
 ```
 
+## Introduction to Conditional Operators
+
+- and `&&`, or `||`, not `!`
+- _not_, `!` is known as the unary operator
