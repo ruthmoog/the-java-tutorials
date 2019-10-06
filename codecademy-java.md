@@ -628,3 +628,61 @@ public double calculateShipping() {
 
 - and `&&`, or `||`, not `!`
 - _not_, `!` is known as the unary operator
+
+## Arrays
+
+- To create an array, first declare the type of data it holds eg, `double[] <name>` then explicitly initialize the array containing data eg, `= {22.99, 22.50, 19.00};`
+- Returning an array will return the location in memory, so convert to string (`toString()`) to see the array output
+- You'll need to import Java's arrays package, `import java.util.Arrays;`
+- Array elements are 0 indexed
+- Empty arrays must be created with a fixed size (heartbreaking!) (you'd want to import java.util and use stacks or array lists...google it!)
+- Get the length of an array using `.length`
+- Use the argument array `args` to pass args into the main() class
+
+> :pencil: create a public method that returns an array of strings:
+
+```java
+  public String[] getTopics() {
+    String[] topics = {
+      "Opinion",
+      "Tech",
+      "Science",
+      "Health",
+    };
+    return topics;
+  }
+```
+
+if we call that method from main()...
+```shell
+> [Ljava.lang.String;@2aae9190
+```
+
+> :pencil: import the array package & use the `toString()` method:
+
+```java
+// import the Arrays package at the top of the file
+import java.util.Arrays;
+
+public class Newsfeed {
+
+  public Newsfeed(){
+    
+  }
+    
+  public String[] getTopics(){
+    String[] topics = {"Opinion", "Tech", "Science", "Health"};
+    return topics;
+  }
+  
+  public static void main(String[] args){
+    Newsfeed sampleFeed = new Newsfeed();
+    String[] topics = sampleFeed.getTopics();
+  // here's the toString() method...
+    System.out.println(Arrays.toString(topics));
+  }
+}
+```
+```shell
+> [Opinion, Tech, Science, Health]
+```
