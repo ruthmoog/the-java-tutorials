@@ -686,3 +686,108 @@ public class Newsfeed {
 ```shell
 > [Opinion, Tech, Science, Health]
 ```
+
+## Array Lists
+
+- Use Array Lists to store elements of the same type, access elements by index, & add and Remove elements
+- They need to be imported from the util package, `import java.util.ArrayList;`
+- Use **generics** inside angle brackets to state the type of objects in an ArrayList, eg `<Integer>` or `<Double>` instead of primitives like `int` or `double`
+
+> :pencil: Import the util and create a `new` Array List:
+> :pencil: Add some To Dos:
+
+```java
+// import the ArrayList package here:
+import java.util.ArrayList;
+
+class ToDos {
+  public static void main(String[] args) {
+    
+    // Create toDoList below:
+    ArrayList<String> toDoList = new ArrayList<String>();
+
+        // Create to-dos:
+    String toDo1 = "Water plants";
+    String toDo2 = "Feed cat";
+
+    // Add to-dos to toDoList
+    toDoList.add(toDo1);
+    toDoList.add(toDo2);
+    toDoList.add("Take out bins");
+    
+    System.out.println(toDoList);
+  }
+}
+```
+
+### Helpful methods on Array Lists
+
+- Use the `size()` method to find the length of the array list
+- Use the `get()` method to find an elements at a given index (unlike arrays which use brackets), and `indexOf` to find an elements index
+- Use the `set()` method to change an item, and `remove()` to delete an item
+
+:seedling: :dog: :bin:
+```java
+    // ...
+    toDoList.size();              // 3
+
+    toDoList.get(0);              // Water plants
+    toDoList.indexOf("Feed cat"); // 1
+
+    toDoList.set(0, "Walk dog");  // change Water plants to Walk dog
+    toDoList.get(0);              // Walk dog
+
+    toDoList.remove(2);           // removes Take out bins
+    toDoList.remove("Walk dog");  // removes (first) instance of Walk dog
+    toDoList.size();              // 1
+```
+
+### Looping through Array Lists
+
+- You can use `while`, `for` and `for each` loops
+- Increment with `++` (if your counter is at 1, `counter++` will count 1, 2, 3, and `++counter` will count 2, 3, 4)
+- For loops are initialised as per eg `(int i = 0; i < 5; i++)`
+- If looping through an arrays length, use `<` rather than `<=` to account for the length being 1 more than the index
+
+> :pencil: Use `Random` with a `while` loop
+
+```java
+// Import the Random library
+import java.util.Random;
+
+class LuckyFive {
+  public static void main(String[] args) {
+
+    // Create a random number generator
+    Random randomGenerator = new Random();
+    
+    // Generate a number between 1 and 6
+    int dieRoll = randomGenerator.nextInt(6) + 1;
+
+    // Repeat while roll isn't 5
+    while (dieRoll != 5) {
+      System.out.println(dieRoll);
+      dieRoll = randomGenerator.nextInt(6) + 1;
+    }
+  }
+}
+```
+
+> :pencil: "Refactor" using a for loop
+
+```java
+    // ... 
+    for (int cupsOfCoffee = 1; cupsOfCoffee <= 100; cupsOfCoffee++) {
+      System.out.println("Fry drinks cup of coffee #" + cupsOfCoffee);
+    }
+```
+
+> Example of iterating through items in an array list
+
+```java
+    for (double expense : expenses) {
+      if (expense > mostExpensive) {
+        mostExpensive = expense;
+      }
+    }
+```
