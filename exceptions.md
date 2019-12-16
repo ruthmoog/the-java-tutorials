@@ -163,7 +163,7 @@ It's good practice to append "Exception" to the end of class names that inherit 
 > :pencil2: https://github.com/ruthmoog/the-java-tutorials/blob/master/ListOfNumbers.java
 
 > :pencil2:
->```java
+```java
 public static void cat(File file) {
     RandomAccessFile input = null;
     String line = null;
