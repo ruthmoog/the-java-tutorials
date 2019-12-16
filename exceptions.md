@@ -1,0 +1,3 @@
+# Exceptions
+
+> :pencil: https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html
