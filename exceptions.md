@@ -2,6 +2,27 @@
 
 > :pencil: https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html
 
+### Summary
+
+- Exceptions allow you to seperate the main logic code from the 'what if something goes wrong'
+- Only the method concerned with the error needs to handle it, so if the error occurs in a method further along the flow it will still be caught by the responsible method
+- Exceptions are grouped naturally by the class hierarchy.  Exception handlers should be as specific as possible, you want them to identify the error first before instructing how to handle it.
+- If a client can reasonably be expected to recover from an exception, make it a checked exception. If a client cannot do anything to recover from the exception, make it an unchecked exception.
+
+>A program can use exceptions to indicate that an error occurred. To throw an exception, use the throw statement and provide it with an exception object — a descendant of Throwable — to provide information about the specific error that occurred. A method that throws an uncaught, checked exception must include a throws clause in its declaration.
+
+> :bulb: A program can catch exceptions by using a combination of the `try`, `catch`, and `finally` blocks.
+
+>- The `try` block identifies a block of code in which an exception can occur.
+>- The `catch` block identifies a block of code, known as an exception handler, that can handle a particular type of exception.
+>- The `finally` block identifies a block of code that is guaranteed to execute, and is the right place to close files, recover resources, and otherwise clean up after the code enclosed in the `try` block.
+
+>The `try` statement should contain at least one `catch` block or a `finally` block and may have multiple `catch` blocks.
+
+>The class of the exception object indicates the type of exception thrown. The exception object can contain further information about the error, including an error message. With exception chaining, an exception can point to the exception that caused _it_, which can in turn point to the exception that caused it, and so on.
+
+-----
+
 Java using `exceptions` to handle errors and exceptional events.
 Exceptions are events.  They disrupt the flow of the program.  
 
