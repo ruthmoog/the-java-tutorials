@@ -36,5 +36,71 @@ Runtime Exceptions are *not* subject to catch or specify requirement.
 
 > :bulb: Errors and runtime exceptions are known as unchecked exceptions
 
+## Try, Catch, Finally
 
+```java
+try {
+  // attempty to do something
+} // catch & finally blocks go here...
+  ```
+
+- you can put each line of code which may throw an exception in it's own `try` block, with seperate handlers for each
+- or you can put all the code in a single `try` block and associate multiple handlers, using a `catch` block
+
+catch blocks come immediately after the try block.
+
+```java
+try {
+  // attempt something...
+} catch (ExceptionType name) {
+  //
+} catch (ExceptionType name) {
+  //
+}
+```
+
+- Each `catch` is an exception handler
+- The ExceptionType must be the name of a class which inherits from a `Throwable` class
+- `catch` code will only be executed if that handler is envoked (if the thrown object can legally be assigned to the exception handlers argument
+- Exception handlers can print errors, halt the program, do error recovery, prompt user to make a decision, move the error to a higher leverl handler using `chained exceptions`.
+
+```java
+try {
+
+} catch (IndexOutOfBoundsException e) {
+  System.err.println("IndexOutOfBoundsException: " + e.getMessage());
+} catch (IOException e) {
+  System.err.println("Caught IOException: " + e.getMessage());
+}
+```
+
+It's possible to catch more than one type using the vertical bar
+
+```java
+catch (IOException|SQLException ex) {
+    logger.log(ex);
+    throw ex;
+}
+```
+
+Here ^^ the catch parameter is implicitly `final`.  you cannot assign any values to `ex` in the catch block.
+
+The finally block _always_ executes when the try block exits.  Put cleanup code here to be a badass.
+
+> The `finally` block might not execute of the JVM exits during the `try` or `catch` code, or if the 'thread' is interrupted or killed.
+
+```java
+finally {
+    if (out != null) { 
+        System.out.println("Closing PrintWriter");
+        out.close(); 
+    } else { 
+        System.out.println("PrintWriter not open");
+    } 
+} 
+```
+
+> :bulb: `finally` to make sure you close files and prevent resource leaks - a resource is an object which must be closed when finished with.
+
+Use a [`try`-with-recourses statement](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) to ensure a resource is closed at the end of the statement.
 
