@@ -157,3 +157,34 @@ Java has many built in exception classes or you can write your own.
 >- If you use someone else's exceptions, will users have access to those exceptions? A similar question is, should your package be independent and self-contained?
 
 It's good practice to append "Exception" to the end of class names that inherit from the `Exception` class - it might not always be the case in legacy code and you'll need to explore to find out which Exceptions are suitable (ie, when it's not appropriate to use an error exception).
+
+## Exercises
+
+> :pencil2: https://github.com/ruthmoog/the-java-tutorials/blob/master/ListOfNumbers.java
+
+> :pencil2:
+>```java
+public static void cat(File file) {
+    RandomAccessFile input = null;
+    String line = null;
+
+    try {
+        input = new RandomAccessFile(file, "r");
+        while ((line = input.readLine()) != null) {
+            System.out.println(line);
+        }
+		return;
+    } catch(FileNotFoundException fnf) {
+		System.err.format("File not found", file);
+	} catch(IOException e) {
+		System.err.println(e.toString());
+	} finally {
+        if (input != null) {
+			try {
+            input.close();
+			} catch(IOException io) {
+			}
+        }
+    }
+}
+```
