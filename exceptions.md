@@ -104,3 +104,35 @@ finally {
 
 Use a [`try`-with-recourses statement](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) to ensure a resource is closed at the end of the statement.
 
+## How to throw an exception
+
+- use the `throw` statement to throw an exception
+- `throw` requires 1 argument, a throwable object (an instance of a subclass of the `Throwable` class)
+
+Most programs you'll write will throw & catch Exceptions as opposed to Errors.  This is because Errors are for serious hard errors in the system, including those that mean JVM can't run.
+
+### Chained Exceptions
+
+This is when one exception is written to trigger another exception.
+
+Here, when an IOException is caught, a new SampleException is created with the original cause attached.  The chain of exceptions is thrown up to the next level exception handler.
+
+```java
+try {
+  // something...
+} catch (IOException e) {
+  throw new SampleException("Other IOException", e);
+}
+```
+
+### Exception Classes
+
+Java has many built in exception classes or you can write your own.
+
+>You should write your own exception classes if you answer yes to any of the following questions; otherwise, you can probably use someone else's.
+>- Do you need an exception type that isn't represented by those in the Java platform?
+>- Would it help users if they could differentiate your exceptions from those thrown by classes written by other vendors?
+>- Does your code throw more than one related exception?
+>- If you use someone else's exceptions, will users have access to those exceptions? A similar question is, should your package be independent and self-contained?
+
+It's good practice to append "Exception" to the end of class names that inherit from the `Exception` class - it might not always be the case in legacy code and you'll need to explore to find out which Exceptions are suitable (ie, when it's not appropriate to use an error exception).
